@@ -1,0 +1,21 @@
+server:
+  port: 8090 #${random.int(8090,8099)}
+spring:
+  application:
+    name: cloud-config-server
+  profiles:
+    active: ${profileActive} #本地开发配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${defaultZone}
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+    appname: cloud-config-server
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
