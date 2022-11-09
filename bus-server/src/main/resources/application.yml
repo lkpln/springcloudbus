@@ -2,16 +2,16 @@ server:
   port: 18082
 spring:
   application:
-    name: config-server
+    name: bus-server
   cloud:
     config:
       server:
         git:
           search-paths: /**    #远程仓库的目录，本例子配置文件在根目录中
-          uri: https://github.com/lkpln/springcloudbus.git   # 配置自己的git仓库地址
+          uri: git@github.com:lkpln/springcloudbus.git   # 配置自己的git仓库地址
           #username: ''   # 访问git仓库的用户名   如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写，
           #password: ''   # 访问git仓库的用户密码
-          default-label: master  # 配置仓库的分支
+          default-label: dev  # 配置仓库的分支
 
     #消息总线配置
     bus:
